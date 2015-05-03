@@ -16,11 +16,11 @@
 			<div class="actions">
 				<div class="panel panel-default">
 					<div class="panel-heading">Acciones</div>
-						<div class="panel-body">
-							<ul class="nav nav-pills nav-stacked">
-								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Crear grupo de investigación'), array('action' => 'add'), array('escape' => false)); ?></li>
-							</ul>
-						</div><!-- end body -->
+					<div class="panel-body">
+						<ul class="nav nav-pills nav-stacked">
+							<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Crear grupo de investigación'), array('action' => 'add'), array('escape' => false)); ?></li>
+						</ul>
+					</div><!-- end body -->
 				</div><!-- end panel -->
 			</div><!-- end actions -->
 		</div><!-- end col md 3 -->
@@ -30,19 +30,19 @@
 				<thead>
 					<tr>
 						<th><?php echo $this->Paginator->sort('id'); ?></th>
-						<th><?php echo $this->Paginator->sort('name'); ?></th>
-						<th><?php echo $this->Paginator->sort('colciencias_code'); ?></th>
+						<th><?php echo $this->Paginator->sort('name','Nombre'); ?></th>
+						<th><?php echo $this->Paginator->sort('colciencias_code','Código COLCIENCIAS'); ?></th>
 						<th><?php echo $this->Paginator->sort('email'); ?></th>
-						<th><?php echo $this->Paginator->sort('created'); ?></th>
-						<th><?php echo $this->Paginator->sort('modified'); ?></th>
-						<th><?php echo $this->Paginator->sort('program_id'); ?></th>
-						<th><?php echo $this->Paginator->sort('research_groups_category_id'); ?></th>
-						<th><?php echo $this->Paginator->sort('research_groups_type_id'); ?></th>
+						<th><?php echo $this->Paginator->sort('created','Fecha de creación'); ?></th>
+						<th><?php echo $this->Paginator->sort('modified','Fecha de modificación'); ?></th>
+						<th><?php echo $this->Paginator->sort('program_id','Programa'); ?></th>
+						<th><?php echo $this->Paginator->sort('research_groups_category_id','Categoría del grupo de investigación'); ?></th>
+						<th><?php echo $this->Paginator->sort('research_groups_type_id','Tipo de grupo de investigación'); ?></th>
 						<th class="actions"></th>
 					</tr>
 				</thead>
 				<tbody>
-				<?php foreach ($researchGroups as $researchGroup): ?>
+					<?php foreach ($researchGroups as $researchGroup): ?>
 					<tr>
 						<td><?php echo h($researchGroup['ResearchGroup']['id']); ?>&nbsp;</td>
 						<td><?php echo h($researchGroup['ResearchGroup']['name']); ?>&nbsp;</td>
@@ -50,15 +50,15 @@
 						<td><?php echo h($researchGroup['ResearchGroup']['email']); ?>&nbsp;</td>
 						<td><?php echo h($researchGroup['ResearchGroup']['created']); ?>&nbsp;</td>
 						<td><?php echo h($researchGroup['ResearchGroup']['modified']); ?>&nbsp;</td>
-								<td>
-			<?php echo $this->Html->link($researchGroup['Program']['name'], array('controller' => 'programs', 'action' => 'view', $researchGroup['Program']['id'])); ?>
-		</td>
-								<td>
-			<?php echo $this->Html->link($researchGroup['ResearchGroupsCategory']['name'], array('controller' => 'research_groups_categories', 'action' => 'view', $researchGroup['ResearchGroupsCategory']['id'])); ?>
-		</td>
-								<td>
-			<?php echo $this->Html->link($researchGroup['ResearchGroupsType']['name'], array('controller' => 'research_groups_types', 'action' => 'view', $researchGroup['ResearchGroupsType']['id'])); ?>
-		</td>
+						<td>
+							<?php echo $this->Html->link($researchGroup['Program']['name'], array('controller' => 'programs', 'action' => 'view', $researchGroup['Program']['id'])); ?>
+						</td>
+						<td>
+							<?php echo $this->Html->link($researchGroup['ResearchGroupsCategory']['name'], array('controller' => 'research_groups_categories', 'action' => 'view', $researchGroup['ResearchGroupsCategory']['id'])); ?>
+						</td>
+						<td>
+							<?php echo $this->Html->link($researchGroup['ResearchGroupsType']['name'], array('controller' => 'research_groups_types', 'action' => 'view', $researchGroup['ResearchGroupsType']['id'])); ?>
+						</td>
 						<td class="actions">
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $researchGroup['ResearchGroup']['id']), array('escape' => false)); ?>
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $researchGroup['ResearchGroup']['id']), array('escape' => false)); ?>
@@ -66,22 +66,22 @@
 						</td>
 					</tr>
 				<?php endforeach; ?>
-				</tbody>
-			</table>
+			</tbody>
+		</table>
 
-			<p>
-				<small><?php echo $this->Paginator->counter(array('format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')));?></small>
-			</p>
+		<p>
+			<small><?php echo $this->Paginator->counter(array('format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')));?></small>
+		</p>
 
-			<?php
-			$params = $this->Paginator->params();
-			if ($params['pageCount'] > 1) {
+		<?php
+		$params = $this->Paginator->params();
+		if ($params['pageCount'] > 1) {
 			?>
 			<ul class="pagination pagination-sm">
 				<?php
-					echo $this->Paginator->prev('&larr; Previous', array('class' => 'prev','tag' => 'li','escape' => false), '<a onclick="return false;">&larr; Previous</a>', array('class' => 'prev disabled','tag' => 'li','escape' => false));
-					echo $this->Paginator->numbers(array('separator' => '','tag' => 'li','currentClass' => 'active','currentTag' => 'a'));
-					echo $this->Paginator->next('Next &rarr;', array('class' => 'next','tag' => 'li','escape' => false), '<a onclick="return false;">Next &rarr;</a>', array('class' => 'next disabled','tag' => 'li','escape' => false));
+				echo $this->Paginator->prev('&larr; Previous', array('class' => 'prev','tag' => 'li','escape' => false), '<a onclick="return false;">&larr; Previous</a>', array('class' => 'prev disabled','tag' => 'li','escape' => false));
+				echo $this->Paginator->numbers(array('separator' => '','tag' => 'li','currentClass' => 'active','currentTag' => 'a'));
+				echo $this->Paginator->next('Next &rarr;', array('class' => 'next','tag' => 'li','escape' => false), '<a onclick="return false;">Next &rarr;</a>', array('class' => 'next disabled','tag' => 'li','escape' => false));
 				?>
 			</ul>
 			<?php } ?>

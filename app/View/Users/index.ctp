@@ -30,17 +30,17 @@
 				<thead>
 					<tr>
 						<th><?php echo $this->Paginator->sort('id'); ?></th>
-						<th><?php echo $this->Paginator->sort('document'); ?></th>
-						<th><?php echo $this->Paginator->sort('full_name'); ?></th>
-						<th><?php echo $this->Paginator->sort('last_name'); ?></th>
+						<th><?php echo $this->Paginator->sort('document','Documento'); ?></th>
+						<th><?php echo $this->Paginator->sort('full_name','Nombres'); ?></th>
+						<th><?php echo $this->Paginator->sort('last_name','Apellidos'); ?></th>
 						<th><?php echo $this->Paginator->sort('email'); ?></th>
-						<th><?php echo $this->Paginator->sort('telephone'); ?></th>
-						<th><?php echo $this->Paginator->sort('bithday'); ?></th>
-						<th><?php echo $this->Paginator->sort('city_id'); ?></th>
-						<th><?php echo $this->Paginator->sort('departament_id'); ?></th>
-						<th><?php echo $this->Paginator->sort('user_type_id'); ?></th>
-						<th><?php echo $this->Paginator->sort('created'); ?></th>
-						<th><?php echo $this->Paginator->sort('modified'); ?></th>
+						<th><?php echo $this->Paginator->sort('telephone','Teléfono'); ?></th>
+						<th><?php echo $this->Paginator->sort('bithday','Fecha de nacimiento'); ?></th>
+						<th><?php echo $this->Paginator->sort('city_id','Ciudad'); ?></th>
+						<th><?php echo $this->Paginator->sort('departament_id','Departamento'); ?></th>
+						<th><?php echo $this->Paginator->sort('user_type_id','Tipo de usuario'); ?></th>
+						<th><?php echo $this->Paginator->sort('created','Fecha de creación'); ?></th>
+						<th><?php echo $this->Paginator->sort('modified','Fecha de modificación'); ?></th>
 						<th class="actions"></th>
 					</tr>
 				</thead>
