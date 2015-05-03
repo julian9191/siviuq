@@ -15,40 +15,40 @@
 			<div class="actions">
 				<div class="panel panel-default">
 					<div class="panel-heading">Acciones</div>
-						<div class="panel-body">
-							<ul class="nav nav-pills nav-stacked">
+					<div class="panel-body">
+						<ul class="nav nav-pills nav-stacked">
 
-							     <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Listar evaluaciones de proyecto'), array('action' => 'index'), array('escape' => false)); ?></li>
-									
-							</ul>
-						</div>
+							<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Listar evaluaciones de proyecto'), array('action' => 'index'), array('escape' => false)); ?></li>
+
+						</ul>
 					</div>
-				</div>			
+				</div>
+			</div>
 		</div><!-- end col md 3 -->
 		<div class="col-md-9">
 			<?php echo $this->Form->create('ProjectEvaluation', array('role' => 'form')); ?>
 
-				<div class="form-group">
-					<?php echo $this->Form->input('date', array('class' => 'form-control', 'placeholder' => 'Date'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('titulo', array('class' => 'form-control', 'placeholder' => 'Titulo'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('evaluator_documento', array('class' => 'form-control', 'placeholder' => 'Evaluator Documento'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('evaluator_name', array('class' => 'form-control', 'placeholder' => 'Evaluator Name'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('result', array('class' => 'form-control', 'placeholder' => 'Result'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('projects_id', array('class' => 'form-control', 'placeholder' => 'Projects Id'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->submit(__('CREAR'), array('class' => 'btn btn-default')); ?>
-				</div>
+			<div class="form-group">
+				<?php echo $this->Form->input('date', array('class' => 'form-control', 'placeholder' => 'Fecha','label' => 'Fecha'));?>
+			</div>
+			<div class="form-group">
+				<?php echo $this->Form->input('titulo', array('class' => 'form-control', 'placeholder' => 'Título','label' => 'Título'));?>
+			</div>
+			<div class="form-group">
+				<?php echo $this->Form->input('evaluator_documento', array('class' => 'form-control', 'placeholder' => 'Documento del evaluador','label' => 'Documento del evaluador'));?>
+			</div>
+			<div class="form-group">
+				<?php echo $this->Form->input('evaluator_name', array('class' => 'form-control', 'placeholder' => 'Nombre del evaluador','label' => 'Nombre del evaluador'));?>
+			</div>
+			<div class="form-group">
+				<?php echo $this->Form->input('result', array('class' => 'form-control', 'placeholder' => 'Resultado','label' => 'Resultado'));?>
+			</div>
+			<div class="form-group">
+				<?php echo $this->Form->input('projects_id', array('class' => 'form-control', 'placeholder' => 'Proyecto','label' => 'Proyecto'));?>
+			</div>
+			<div class="form-group">
+				<?php echo $this->Form->submit(__('CREAR'), array('class' => 'btn btn-default')); ?>
+			</div>
 
 			<?php echo $this->Form->end() ?>
 
