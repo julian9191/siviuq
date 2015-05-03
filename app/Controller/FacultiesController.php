@@ -49,10 +49,10 @@ class FacultiesController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Faculty->create();
 			if ($this->Faculty->save($this->request->data)) {
-				$this->Session->setFlash(__('The faculty has been saved.'), 'default', array('class' => 'alert alert-success'));
+				$this->Session->setFlash(__('La facultad se ha creado.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The faculty could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash(__('No se ha creado la facultad. Por favor, Intente de nuevo.'), 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 	}
