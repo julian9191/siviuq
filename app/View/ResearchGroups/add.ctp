@@ -40,10 +40,10 @@
 				<?php echo $this->Form->input('program_id', array('class' => 'form-control', 'placeholder' => 'Programa','label' => 'Programa'));?>
 			</div>
 			<div class="form-group">
-				<?php echo $this->Form->input('research_groups_category_id', array('class' => 'form-control', 'placeholder' => 'Categoría del grupo de investigación'));?>
+				<?php echo $this->Form->input('research_groups_category_id', array('class' => 'form-control', 'placeholder' => 'Categoría del grupo de investigación','label' =>'Categoría del grupo de investigación'));?>
 			</div>
 			<div class="form-group">
-				<?php echo $this->Form->input('research_groups_type_id', array('class' => 'form-control', 'placeholder' => 'Tipo de grupo de investigación'));?>
+				<?php echo $this->Form->input('research_groups_type_id', array('class' => 'form-control', 'placeholder' => 'Tipo de grupo de investigación','label' =>'Tipo de grupo de investigación'));?>
 			</div>
 			<div class="form-group">
 				<?php echo $this->Form->submit(__('CREAR'), array('class' => 'btn btn-default')); ?>

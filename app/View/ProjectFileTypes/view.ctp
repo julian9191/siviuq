@@ -37,21 +37,21 @@
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Name'); ?></th>
+		<th><?php echo __('Nombre'); ?></th>
 		<td>
 			<?php echo h($projectFileType['ProjectFileType']['name']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Created'); ?></th>
+		<th><?php echo __('Fecha de creación'); ?></th>
 		<td>
 			<?php echo h($projectFileType['ProjectFileType']['created']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Modified'); ?></th>
+		<th><?php echo __('Fecha de modificación'); ?></th>
 		<td>
 			<?php echo h($projectFileType['ProjectFileType']['modified']); ?>
 			&nbsp;

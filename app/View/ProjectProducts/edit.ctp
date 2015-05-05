@@ -33,13 +33,13 @@
 					<?php echo $this->Form->input('id', array('class' => 'form-control', 'placeholder' => 'Id'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('title', array('class' => 'form-control', 'placeholder' => 'Title'));?>
+					<?php echo $this->Form->input('title', array('class' => 'form-control', 'placeholder' => 'Título','label' => 'Título'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('description', array('class' => 'form-control', 'placeholder' => 'Description'));?>
+					<?php echo $this->Form->input('description', array('class' => 'form-control', 'placeholder' => 'Descripción','label' => 'Descripción'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('project_id', array('class' => 'form-control', 'placeholder' => 'Project Id'));?>
+					<?php echo $this->Form->input('project_id', array('class' => 'form-control', 'placeholder' => 'Proyecto','label' => 'Proyecto'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('EDITAR'), array('class' => 'btn btn-default')); ?>

@@ -80,14 +80,14 @@
 					<tr>
 						<th><?php echo __('Ciudad'); ?></th>
 						<td>
-							<?php echo $this->Html->link($user['City']['name'], array('controller' => 'cities', 'action' => 'view', $user['City']['id'])); ?>
+							<?php echo h($user['City']['name']); ?>							
 							&nbsp;
 						</td>
 					</tr>
 					<tr>
 						<th><?php echo __('Departamento'); ?></th>
 						<td>
-							<?php echo $this->Html->link($user['Departament']['name'], array('controller' => 'departaments', 'action' => 'view', $user['Departament']['id'])); ?>
+							<?php echo h($user['Departament']['name']); ?>							
 							&nbsp;
 						</td>
 					</tr>

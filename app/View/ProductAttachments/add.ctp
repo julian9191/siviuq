@@ -28,13 +28,13 @@
 			<?php echo $this->Form->create('ProductAttachment', ['enctype' => 'multipart/form-data'], array('role' => 'form')); ?>
 
 				<div class="form-group">
-					<?php echo $this->Form->input('title', array('class' => 'form-control', 'placeholder' => 'Title'));?>
+					<?php echo $this->Form->input('title', array('class' => 'form-control', 'placeholder' => 'Título','label' => 'Título'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('file', array('class' => 'form-control', 'placeholder' => 'File'));?>
+					<?php echo $this->Form->input('file', array('class' => 'form-control', 'placeholder' => 'Archivo','label' => 'Archivo'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('project_product_id', array('class' => 'form-control', 'placeholder' => 'Project Product Id'));?>
+					<?php echo $this->Form->input('project_product_id', array('class' => 'form-control', 'placeholder' => 'Producto','label' => 'Producto'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('CREAR'), array('class' => 'btn btn-default')); ?>

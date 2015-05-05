@@ -29,16 +29,16 @@
 			<?php echo $this->Form->create('DeliveryDate', array('role' => 'form')); ?>
 
 				<div class="form-group">
-					<?php echo $this->Form->input('description', array('class' => 'form-control', 'placeholder' => 'Description'));?>
+					<?php echo $this->Form->input('description', array('class' => 'form-control', 'placeholder' => 'Descripción', 'label' => 'Descripción'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('date', array('class' => 'form-control', 'placeholder' => 'Date'));?>
+					<?php echo $this->Form->input('date', array('class' => 'form-control', 'placeholder' => 'Fecha', 'label' => 'Fecha'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('notifications_template_id', array('class' => 'form-control', 'placeholder' => 'Notifications Template Id'));?>
+					<?php echo $this->Form->input('notifications_template_id', array('class' => 'form-control', 'placeholder' => 'Plantilla', 'label' => 'Plantilla'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('project_id', array('class' => 'form-control', 'placeholder' => 'Project Id'));?>
+					<?php echo $this->Form->input('project_id', array('class' => 'form-control', 'placeholder' => 'Proyecto', 'label' => 'Proyecto'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('CREAR'), array('class' => 'btn btn-default')); ?>

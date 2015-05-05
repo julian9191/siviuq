@@ -41,7 +41,7 @@
 						</td>
 					</tr>
 					<tr>
-						<th><?php echo __('Curriculum'); ?></th>
+						<th><?php echo __('Título'); ?></th>
 						<td>
 							<?php echo h($project['Project']['resume']); ?>
 							&nbsp;

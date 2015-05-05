@@ -33,22 +33,22 @@
 					<?php echo $this->Form->input('id', array('class' => 'form-control', 'placeholder' => 'Id'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('date', array('class' => 'form-control', 'placeholder' => 'Date'));?>
+					<?php echo $this->Form->input('date', array('class' => 'form-control', 'placeholder' => 'Fecha','label'=>'Fecha'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('titulo', array('class' => 'form-control', 'placeholder' => 'Titulo'));?>
+					<?php echo $this->Form->input('titulo', array('class' => 'form-control', 'placeholder' => 'Titulo','label'=>'Titulo'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('evaluator_documento', array('class' => 'form-control', 'placeholder' => 'Evaluator Documento'));?>
+					<?php echo $this->Form->input('evaluator_documento', array('class' => 'form-control', 'placeholder' => ' Documento Evaluador','label'=>'Documento Evaluador'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('evaluator_name', array('class' => 'form-control', 'placeholder' => 'Evaluator Name'));?>
+					<?php echo $this->Form->input('evaluator_name', array('class' => 'form-control', 'placeholder' => 'Nombre del Evaluador','label'=>'Nombre del Evaluador'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('result', array('class' => 'form-control', 'placeholder' => 'Result'));?>
+					<?php echo $this->Form->input('result', array('class' => 'form-control', 'placeholder' => 'Resultado','label'=>'Resultado'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('projects_id', array('class' => 'form-control', 'placeholder' => 'Projects Id'));?>
+					<?php echo $this->Form->input('projects_id', array('class' => 'form-control', 'placeholder' => 'Proyecto','label'=>'Proyecto'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('EDITAR'), array('class' => 'btn btn-default')); ?>

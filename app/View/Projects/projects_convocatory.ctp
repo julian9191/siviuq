@@ -30,7 +30,7 @@
 				<thead>
 					<tr>
 						<th><?php echo $this->Paginator->sort('id'); ?></th>
-						<th><?php echo $this->Paginator->sort('resume','Curriculum'); ?></th>
+						<th><?php echo $this->Paginator->sort('resume','Título'); ?></th>
 						<th><?php echo $this->Paginator->sort('summary','Resumen'); ?></th>
 						<th><?php echo $this->Paginator->sort('created','Fecha de creación'); ?></th>
 						<th><?php echo $this->Paginator->sort('modified','Fecha de modificación'); ?></th>

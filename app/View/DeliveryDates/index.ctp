@@ -30,12 +30,12 @@
 				<thead>
 					<tr>
 						<th><?php echo $this->Paginator->sort('id'); ?></th>
-						<th><?php echo $this->Paginator->sort('description'); ?></th>
-						<th><?php echo $this->Paginator->sort('date'); ?></th>
-						<th><?php echo $this->Paginator->sort('created'); ?></th>
-						<th><?php echo $this->Paginator->sort('modified'); ?></th>
-						<th><?php echo $this->Paginator->sort('notifications_template_id'); ?></th>
-						<th><?php echo $this->Paginator->sort('project_id'); ?></th>
+						<th><?php echo $this->Paginator->sort('description','Descripción'); ?></th>
+						<th><?php echo $this->Paginator->sort('date','Fecha'); ?></th>
+						<th><?php echo $this->Paginator->sort('created','Fecha de creación'); ?></th>
+						<th><?php echo $this->Paginator->sort('modified','Fecha de modificación'); ?></th>
+						<th><?php echo $this->Paginator->sort('notifications_template_id','Plantilla'); ?></th>
+						<th><?php echo $this->Paginator->sort('project_id','Proyecto'); ?></th>
 						<th class="actions"></th>
 					</tr>
 				</thead>

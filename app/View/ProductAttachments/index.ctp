@@ -31,11 +31,11 @@
 				<thead>
 					<tr>
 						<th><?php echo $this->Paginator->sort('id'); ?></th>
-						<th><?php echo $this->Paginator->sort('title'); ?></th>
-						<th><?php echo $this->Paginator->sort('file'); ?></th>
-						<th><?php echo $this->Paginator->sort('created'); ?></th>
-						<th><?php echo $this->Paginator->sort('modified'); ?></th>
-						<th><?php echo $this->Paginator->sort('project_product_id'); ?></th>
+						<th><?php echo $this->Paginator->sort('title','Título'); ?></th>
+						<th><?php echo $this->Paginator->sort('file','Archivo'); ?></th>
+						<th><?php echo $this->Paginator->sort('created','Fecha de creación'); ?></th>
+						<th><?php echo $this->Paginator->sort('modified','Fecha de modificación'); ?></th>
+						<th><?php echo $this->Paginator->sort('project_product_id','Producto'); ?></th>
 						<th class="actions"></th>
 					</tr>
 				</thead>

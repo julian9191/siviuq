@@ -66,21 +66,21 @@
 						</td>
 					</tr>
 					<tr>
-						<th><?php echo __('File'); ?></th>
+						<th><?php echo __('Archivo'); ?></th>
 						<td>
 							<?php echo $this->Html->link($convocatory['Convocatory']['file_name'], array('action'=>'download', $convocatory['Convocatory']['id']), array('target' => '_blank', 'download' => $convocatory['Convocatory']['file_name'])); ?>
 							&nbsp;
 						</td>
 					</tr>
 					<tr>
-						<th><?php echo __('Created'); ?></th>
+						<th><?php echo __('Fecha de creación'); ?></th>
 						<td>
 							<?php echo h($convocatory['Convocatory']['created']); ?>
 							&nbsp;
 						</td>
 					</tr>
 					<tr>
-						<th><?php echo __('Modified'); ?></th>
+						<th><?php echo __('Fecha de modificación'); ?></th>
 						<td>
 							<?php echo h($convocatory['Convocatory']['modified']); ?>
 							&nbsp;

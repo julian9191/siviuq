@@ -27,7 +27,7 @@
 			<?php echo $this->Form->create('Project', array('role' => 'form')); ?>
 
 			<div class="form-group">
-				<?php echo $this->Form->input('resume', array('class' => 'form-control', 'placeholder' => 'Curriculum','label' => 'Curriculum'));?>
+				<?php echo $this->Form->input('resume', array('class' => 'form-control', 'placeholder' => 'Título','label' => 'Título'));?>
 			</div>
 			<div class="form-group">
 				<?php echo $this->Form->input('summary', array('class' => 'form-control', 'placeholder' => 'Resumen','label' => 'Resumen'));?>

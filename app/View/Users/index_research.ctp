@@ -55,10 +55,10 @@
 						<td><?php echo h($user['User']['telephone']); ?>&nbsp;</td>
 						<td><?php echo h($user['User']['bithday']); ?>&nbsp;</td>
 						<td>
-							<?php echo $this->Html->link($user['City']['name'], array('controller' => 'cities', 'action' => 'view', $user['City']['id'])); ?>
+							<?php echo h($user['City']['name']); ?>							
 						</td>
 						<td>
-							<?php echo $this->Html->link($user['Departament']['name'], array('controller' => 'departaments', 'action' => 'view', $user['Departament']['id'])); ?>
+							<?php echo h($user['Departament']['name']); ?>							
 						</td>
 						<td>
 							<?php echo $this->Html->link($user['UserType']['name'], array('controller' => 'user_types', 'action' => 'view', $user['UserType']['id'])); ?>

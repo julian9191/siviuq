@@ -29,7 +29,7 @@
 			<?php echo $this->Form->create('InvestigationLine', array('role' => 'form')); ?>
 
 			<div class="form-group">
-				<?php echo $this->Form->input('name', array('class' => 'form-control', 'placeholder' => 'Nombre',, 'label' => 'Nombre'));?>
+				<?php echo $this->Form->input('name', array('class' => 'form-control', 'placeholder' => 'Nombre', 'label' => 'Nombre'));?>
 			</div>
 			<div class="form-group">
 				<?php echo $this->Form->submit(__('CREAR'), array('class' => 'btn btn-default')); ?>

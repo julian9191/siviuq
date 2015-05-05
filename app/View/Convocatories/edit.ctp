@@ -33,19 +33,19 @@
 				<?php echo $this->Form->input('id', array('class' => 'form-control', 'placeholder' => 'Id'));?>
 			</div>
 			<div class="form-group">
-				<?php echo $this->Form->input('name', array('class' => 'form-control', 'placeholder' => 'Nombre',, 'label' => 'Nombre'));?>
+				<?php echo $this->Form->input('name', array('class' => 'form-control', 'placeholder' => 'Nombre', 'label' => 'Nombre'));?>
 			</div>
 			<div class="form-group">
-				<?php echo $this->Form->input('opening_date', array('class' => 'form-control', 'placeholder' => 'Fecha de apertura',, 'label' => 'Fecha de apertura'));?>
+				<?php echo $this->Form->input('opening_date', array('class' => 'form-control', 'placeholder' => 'Fecha de apertura', 'label' => 'Fecha de apertura'));?>
 			</div>
 			<div class="form-group">
-				<?php echo $this->Form->input('closing_date', array('class' => 'form-control', 'placeholder' => 'Fecha de cierre',, 'label' => 'Fecha de cierre'));?>
+				<?php echo $this->Form->input('closing_date', array('class' => 'form-control', 'placeholder' => 'Fecha de cierre', 'label' => 'Fecha de cierre'));?>
 			</div>
 			<div class="form-group">
-				<?php echo $this->Form->input('description', array('class' => 'form-control', 'placeholder' => 'Descripción',, 'label' => 'Descripción'));?>
+				<?php echo $this->Form->input('description', array('class' => 'form-control', 'placeholder' => 'Descripción', 'label' => 'Descripción'));?>
 			</div>
 			<div class="form-group">
-				<?php echo $this->Form->input('file', array('class' => 'form-control', 'placeholder' => 'Archivo',, 'label' => 'Archivo'), ['type' => 'file']);?>
+				<?php echo $this->Form->input('file', array('class' => 'form-control', 'placeholder' => 'Archivo', 'label' => 'Archivo'), ['type' => 'file']);?>
 			</div>
 			<div class="form-group">
 				<?php echo $this->Form->submit(__('EDITAR'), array('class' => 'btn btn-default')); ?>

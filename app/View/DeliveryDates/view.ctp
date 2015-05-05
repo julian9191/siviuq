@@ -37,42 +37,42 @@
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Description'); ?></th>
+		<th><?php echo __('Descripción'); ?></th>
 		<td>
 			<?php echo h($deliveryDate['DeliveryDate']['description']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Date'); ?></th>
+		<th><?php echo __('Fecha'); ?></th>
 		<td>
 			<?php echo h($deliveryDate['DeliveryDate']['date']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Created'); ?></th>
+		<th><?php echo __('Fecha de creación'); ?></th>
 		<td>
 			<?php echo h($deliveryDate['DeliveryDate']['created']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Modified'); ?></th>
+		<th><?php echo __('Fecha de modificación'); ?></th>
 		<td>
 			<?php echo h($deliveryDate['DeliveryDate']['modified']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Notifications Template'); ?></th>
+		<th><?php echo __('Plantilla'); ?></th>
 		<td>
 			<?php echo $this->Html->link($deliveryDate['NotificationsTemplate']['id'], array('controller' => 'notifications_templates', 'action' => 'view', $deliveryDate['NotificationsTemplate']['id'])); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Project'); ?></th>
+		<th><?php echo __('Proyecto'); ?></th>
 		<td>
 			<?php echo $this->Html->link($deliveryDate['Project']['id'], array('controller' => 'projects', 'action' => 'view', $deliveryDate['Project']['id'])); ?>
 			&nbsp;
