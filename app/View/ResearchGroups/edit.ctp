@@ -42,10 +42,10 @@
 				<?php echo $this->Form->input('email', array('class' => 'form-control', 'placeholder' => 'Email','label' => 'Email'));?>
 			</div>
 			<div class="form-group">
-				<?php echo $this->Form->input('program_id', array('class' => 'form-control', 'placeholder' => 'Program Id','Programa'));?>
+				<?php echo $this->Form->input('program_id', array('class' => 'form-control', 'placeholder' => 'Program Id','label'=>'Programa'));?>
 			</div>
 			<div class="form-group">
-				<?php echo $this->Form->input('research_groups_category_id', array('class' => 'form-control', 'placeholder' => 'Research Groups Category Id','Categoria del grupo de investigación'));?>
+				<?php echo $this->Form->input('research_groups_category_id', array('class' => 'form-control', 'placeholder' => 'Research Groups Category Id','label' =>'Categoria del grupo de investigación'));?>
 			</div>
 			<div class="form-group">
 				<?php echo $this->Form->input('research_groups_type_id', array('class' => 'form-control', 'placeholder' => 'Research Groups Type Id','label' => 'Tipo de grupo de investigación'));?>

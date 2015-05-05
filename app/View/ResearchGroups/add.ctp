@@ -28,22 +28,22 @@
 			<?php echo $this->Form->create('ResearchGroup', array('role' => 'form')); ?>
 
 			<div class="form-group">
-				<?php echo $this->Form->input('name', array('class' => 'form-control', 'placeholder' => 'Name'));?>
+				<?php echo $this->Form->input('name', array('class' => 'form-control', 'placeholder' => 'Nombre','label' => 'Nombre'));?>
 			</div>
 			<div class="form-group">
-				<?php echo $this->Form->input('colciencias_code', array('class' => 'form-control', 'placeholder' => 'Colciencias Code'));?>
+				<?php echo $this->Form->input('colciencias_code', array('class' => 'form-control', 'placeholder' => 'Código de Colciencias','label' => 'Código de Colciencias'));?>
 			</div>
 			<div class="form-group">
-				<?php echo $this->Form->input('email', array('class' => 'form-control', 'placeholder' => 'Email'));?>
+				<?php echo $this->Form->input('email', array('class' => 'form-control', 'placeholder' => 'Email','label' => 'Email'));?>
 			</div>
 			<div class="form-group">
-				<?php echo $this->Form->input('program_id', array('class' => 'form-control', 'placeholder' => 'Program Id'));?>
+				<?php echo $this->Form->input('program_id', array('class' => 'form-control', 'placeholder' => 'Programa','label' => 'Programa'));?>
 			</div>
 			<div class="form-group">
-				<?php echo $this->Form->input('research_groups_category_id', array('class' => 'form-control', 'placeholder' => 'Research Groups Category Id'));?>
+				<?php echo $this->Form->input('research_groups_category_id', array('class' => 'form-control', 'placeholder' => 'Categoría del grupo de investigación'));?>
 			</div>
 			<div class="form-group">
-				<?php echo $this->Form->input('research_groups_type_id', array('class' => 'form-control', 'placeholder' => 'Research Groups Type Id'));?>
+				<?php echo $this->Form->input('research_groups_type_id', array('class' => 'form-control', 'placeholder' => 'Tipo de grupo de investigación'));?>
 			</div>
 			<div class="form-group">
 				<?php echo $this->Form->submit(__('CREAR'), array('class' => 'btn btn-default')); ?>

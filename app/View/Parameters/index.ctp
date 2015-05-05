@@ -31,16 +31,16 @@
 					<tr>
 						<th><?php echo $this->Paginator->sort('id'); ?></th>
 						<th><?php echo $this->Paginator->sort('logo'); ?></th>
-						<th><?php echo $this->Paginator->sort('company_name'); ?></th>
-						<th><?php echo $this->Paginator->sort('company_telephone'); ?></th>
-						<th><?php echo $this->Paginator->sort('company_addres'); ?></th>
-						<th><?php echo $this->Paginator->sort('company_email'); ?></th>
-						<th><?php echo $this->Paginator->sort('company_nit'); ?></th>
-						<th><?php echo $this->Paginator->sort('company_web_page'); ?></th>
-						<th><?php echo $this->Paginator->sort('application_name'); ?></th>
-						<th><?php echo $this->Paginator->sort('authors'); ?></th>
-						<th><?php echo $this->Paginator->sort('notifications_email'); ?></th>
-						<th><?php echo $this->Paginator->sort('notifications_email_pass'); ?></th>
+						<th><?php echo $this->Paginator->sort('company_name', 'Nombre de la compañia'); ?></th>
+						<th><?php echo $this->Paginator->sort('company_telephone','Teléfono de la compañia'); ?></th>
+						<th><?php echo $this->Paginator->sort('company_addres','Dirección de la compañia'); ?></th>
+						<th><?php echo $this->Paginator->sort('company_email','Email de la compañia'); ?></th>
+						<th><?php echo $this->Paginator->sort('company_nit','NIT de la compañia'); ?></th>
+						<th><?php echo $this->Paginator->sort('company_web_page','Página de la web de la compañia'); ?></th>
+						<th><?php echo $this->Paginator->sort('application_name','Nombre de la aplicación'); ?></th>
+						<th><?php echo $this->Paginator->sort('authors','Autores'); ?></th>
+						<th><?php echo $this->Paginator->sort('notifications_email','Email de notificación'); ?></th>
+						<th><?php echo $this->Paginator->sort('notifications_email_pass','Contraseña Email de notificación'); ?></th>
 						<th class="actions"></th>
 					</tr>
 				</thead>

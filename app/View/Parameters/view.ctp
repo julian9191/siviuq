@@ -43,70 +43,70 @@
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Company Name'); ?></th>
+		<th><?php echo __('Nombre de la compañia'); ?></th>
 		<td>
 			<?php echo h($parameter['Parameter']['company_name']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Company Telephone'); ?></th>
+		<th><?php echo __('Teléfono de la compañia'); ?></th>
 		<td>
 			<?php echo h($parameter['Parameter']['company_telephone']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Company Addres'); ?></th>
+		<th><?php echo __('Dirección de la compañia'); ?></th>
 		<td>
 			<?php echo h($parameter['Parameter']['company_addres']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Company Email'); ?></th>
+		<th><?php echo __('Email de la compañia'); ?></th>
 		<td>
 			<?php echo h($parameter['Parameter']['company_email']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Company Nit'); ?></th>
+		<th><?php echo __('NIT compañia'); ?></th>
 		<td>
 			<?php echo h($parameter['Parameter']['company_nit']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Company Web Page'); ?></th>
+		<th><?php echo __('Página Web de la compañia'); ?></th>
 		<td>
 			<?php echo h($parameter['Parameter']['company_web_page']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Application Name'); ?></th>
+		<th><?php echo __('Nombre de la aplicación'); ?></th>
 		<td>
 			<?php echo h($parameter['Parameter']['application_name']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Authors'); ?></th>
+		<th><?php echo __('Autores'); ?></th>
 		<td>
 			<?php echo h($parameter['Parameter']['authors']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Notifications Email'); ?></th>
+		<th><?php echo __('Email de notificación'); ?></th>
 		<td>
 			<?php echo h($parameter['Parameter']['notifications_email']); ?>
 			&nbsp;
 		</td>
 </tr>
 <tr>
-		<th><?php echo __('Notifications Email Pass'); ?></th>
+		<th><?php echo __('Contraseña Email de notificación'); ?></th>
 		<td>
 			<?php echo h($parameter['Parameter']['notifications_email_pass']); ?>
 			&nbsp;

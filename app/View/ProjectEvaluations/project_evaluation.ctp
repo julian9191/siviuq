@@ -19,7 +19,7 @@
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
 								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;volver al proyecto'), array('controller' => 'projects', 'action' => 'view', $idProject), array('escape' => false)); ?></li>
-								
+
 							</ul>
 						</div><!-- end body -->
 				</div><!-- end panel -->
@@ -31,14 +31,14 @@
 				<thead>
 					<tr>
 						<th><?php echo $this->Paginator->sort('id'); ?></th>
-						<th><?php echo $this->Paginator->sort('date'); ?></th>
-						<th><?php echo $this->Paginator->sort('titulo'); ?></th>
-						<th><?php echo $this->Paginator->sort('evaluator_documento'); ?></th>
-						<th><?php echo $this->Paginator->sort('evaluator_name'); ?></th>
-						<th><?php echo $this->Paginator->sort('result'); ?></th>
-						<th><?php echo $this->Paginator->sort('created'); ?></th>
-						<th><?php echo $this->Paginator->sort('modified'); ?></th>
-						<th><?php echo $this->Paginator->sort('projects_id'); ?></th>
+						<th><?php echo $this->Paginator->sort('date','Fecha'); ?></th>
+						<th><?php echo $this->Paginator->sort('titulo','Título'); ?></th>
+						<th><?php echo $this->Paginator->sort('evaluator_documento','Documento del evaluador'); ?></th>
+						<th><?php echo $this->Paginator->sort('evaluator_name','Nombre del evaluador'); ?></th>
+						<th><?php echo $this->Paginator->sort('result','Resultado'); ?></th>
+						<th><?php echo $this->Paginator->sort('created','Fecha de creación'); ?></th>
+						<th><?php echo $this->Paginator->sort('modified','Fecha de modificación'); ?></th>
+						<th><?php echo $this->Paginator->sort('projects_id','Proyecto'); ?></th>
 						<th class="actions"></th>
 					</tr>
 				</thead>

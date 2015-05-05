@@ -30,16 +30,16 @@
 				<thead>
 					<tr>
 						<th><?php echo $this->Paginator->sort('id'); ?></th>
-						<th><?php echo $this->Paginator->sort('resume'); ?></th>
-						<th><?php echo $this->Paginator->sort('summary'); ?></th>
-						<th><?php echo $this->Paginator->sort('created'); ?></th>
-						<th><?php echo $this->Paginator->sort('modified'); ?></th>
-						<th><?php echo $this->Paginator->sort('budget'); ?></th>
-						<th><?php echo $this->Paginator->sort('start_date'); ?></th>
-						<th><?php echo $this->Paginator->sort('end_date'); ?></th>
-						<th><?php echo $this->Paginator->sort('project_state_id'); ?></th>
-						<th><?php echo $this->Paginator->sort('investigation_line_id'); ?></th>
-						<th><?php echo $this->Paginator->sort('convocatory_id'); ?></th>
+						<th><?php echo $this->Paginator->sort('resume','Curriculum'); ?></th>
+						<th><?php echo $this->Paginator->sort('summary','Resumen'); ?></th>
+						<th><?php echo $this->Paginator->sort('created','Fecha de creación'); ?></th>
+						<th><?php echo $this->Paginator->sort('modified','Fecha de modificación'); ?></th>
+						<th><?php echo $this->Paginator->sort('budget','Presupuesto'); ?></th>
+						<th><?php echo $this->Paginator->sort('start_date','Fecha de inicio'); ?></th>
+						<th><?php echo $this->Paginator->sort('end_date','Fecha de fin'); ?></th>
+						<th><?php echo $this->Paginator->sort('project_state_id','Estado del proyecto'); ?></th>
+						<th><?php echo $this->Paginator->sort('investigation_line_id','Línea de investigación'); ?></th>
+						<th><?php echo $this->Paginator->sort('convocatory_id','Convocatoria'); ?></th>
 						<th class="actions"></th>
 					</tr>
 				</thead>

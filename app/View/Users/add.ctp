@@ -15,49 +15,48 @@
 			<div class="actions">
 				<div class="panel panel-default">
 					<div class="panel-heading">Acciones</div>
-						<div class="panel-body">
-							<ul class="nav nav-pills nav-stacked">
+					<div class="panel-body">
+						<ul class="nav nav-pills nav-stacked">
 
-							     <li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Listar usuarios'), array('action' => 'index'), array('escape' => false)); ?></li>
-									
-							</ul>
-						</div>
+							<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Listar usuarios'), array('action' => 'index'), array('escape' => false)); ?></li>
+						</ul>
 					</div>
-				</div>			
+				</div>
+			</div>
 		</div><!-- end col md 3 -->
 		<div class="col-md-9">
 			<?php echo $this->Form->create('User', array('role' => 'form')); ?>
 
-				<div class="form-group">
-					<?php echo $this->Form->input('document', array('class' => 'form-control', 'placeholder' => 'Document'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('full_name', array('class' => 'form-control', 'placeholder' => 'Full Name'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('last_name', array('class' => 'form-control', 'placeholder' => 'Last Name'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('email', array('class' => 'form-control', 'placeholder' => 'Email'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('telephone', array('class' => 'form-control', 'placeholder' => 'Telephone'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('bithday', array('class' => 'form-control', 'placeholder' => 'Bithday'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('city_id', array('class' => 'form-control', 'placeholder' => 'City Id'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('departament_id', array('class' => 'form-control', 'placeholder' => 'Departament Id'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('user_type_id', array('class' => 'form-control', 'placeholder' => 'User Type Id'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->submit(__('CREAR'), array('class' => 'btn btn-default')); ?>
-				</div>
+			<div class="form-group">
+				<?php echo $this->Form->input('document', array('class' => 'form-control', 'placeholder' => 'Documento','label' => 'Documento'));?>
+			</div>
+			<div class="form-group">
+				<?php echo $this->Form->input('full_name', array('class' => 'form-control', 'placeholder' => 'Nombre completo','label' => 'Nombre Completo'));?>
+			</div>
+			<div class="form-group">
+				<?php echo $this->Form->input('last_name', array('class' => 'form-control', 'placeholder' => 'Apellidos','label' => 'Apellidos'));?>
+			</div>
+			<div class="form-group">
+				<?php echo $this->Form->input('email', array('class' => 'form-control', 'placeholder' => 'Email','label' => 'Email'));?>
+			</div>
+			<div class="form-group">
+				<?php echo $this->Form->input('telephone', array('class' => 'form-control', 'placeholder' => 'Teléfono','label' => 'Teléfono'));?>
+			</div>
+			<div class="form-group">
+				<?php echo $this->Form->input('bithday', array('class' => 'form-control', 'placeholder' => 'Fecha de nacimiento','label' => 'Fecha de nacimiento'));?>
+			</div>
+			<div class="form-group">
+				<?php echo $this->Form->input('city_id', array('class' => 'form-control', 'placeholder' => 'Ciudad','label' => 'Ciudad'));?>
+			</div>
+			<div class="form-group">
+				<?php echo $this->Form->input('departament_id', array('class' => 'form-control', 'placeholder' => 'Departamento','label' => 'Departamento'));?>
+			</div>
+			<div class="form-group">
+				<?php echo $this->Form->input('user_type_id', array('class' => 'form-control', 'placeholder' => 'Tipo de usuario','label' => 'Tipo de usuario'));?>
+			</div>
+			<div class="form-group">
+				<?php echo $this->Form->submit(__('CREAR'), array('class' => 'btn btn-default')); ?>
+			</div>
 
 			<?php echo $this->Form->end() ?>
 

@@ -13,105 +13,105 @@
 			<div class="actions">
 				<div class="panel panel-default">
 					<div class="panel-heading">Acciones</div>
-						<div class="panel-body">
-							<ul class="nav nav-pills nav-stacked">
-									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp&nbsp;Editar usuario'), array('action' => 'edit', $user['User']['id']), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Eliminar usuario'), array('action' => 'delete', $user['User']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $user['User']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;Listar usuarios'), array('action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;Crear usuario'), array('action' => 'add'), array('escape' => false)); ?> </li>
-							</ul>
-						</div><!-- end body -->
+					<div class="panel-body">
+						<ul class="nav nav-pills nav-stacked">
+							<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp&nbsp;Editar usuario'), array('action' => 'edit', $user['User']['id']), array('escape' => false)); ?> </li>
+							<li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Eliminar usuario'), array('action' => 'delete', $user['User']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $user['User']['id'])); ?> </li>
+							<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;Listar usuarios'), array('action' => 'index'), array('escape' => false)); ?> </li>
+							<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;Crear usuario'), array('action' => 'add'), array('escape' => false)); ?> </li>
+						</ul>
+					</div><!-- end body -->
 				</div><!-- end panel -->
 			</div><!-- end actions -->
 		</div><!-- end col md 3 -->
 
-		<div class="col-md-9">			
+		<div class="col-md-9">
 			<table cellpadding="0" cellspacing="0" class="table table-striped">
 				<tbody>
-				<tr>
-		<th><?php echo __('Id'); ?></th>
-		<td>
-			<?php echo h($user['User']['id']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Document'); ?></th>
-		<td>
-			<?php echo h($user['User']['document']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Full Name'); ?></th>
-		<td>
-			<?php echo h($user['User']['full_name']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Last Name'); ?></th>
-		<td>
-			<?php echo h($user['User']['last_name']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Email'); ?></th>
-		<td>
-			<?php echo h($user['User']['email']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Telephone'); ?></th>
-		<td>
-			<?php echo h($user['User']['telephone']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Bithday'); ?></th>
-		<td>
-			<?php echo h($user['User']['bithday']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('City'); ?></th>
-		<td>
-			<?php echo $this->Html->link($user['City']['name'], array('controller' => 'cities', 'action' => 'view', $user['City']['id'])); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Departament'); ?></th>
-		<td>
-			<?php echo $this->Html->link($user['Departament']['name'], array('controller' => 'departaments', 'action' => 'view', $user['Departament']['id'])); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('User Type'); ?></th>
-		<td>
-			<?php echo $this->Html->link($user['UserType']['name'], array('controller' => 'user_types', 'action' => 'view', $user['UserType']['id'])); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Created'); ?></th>
-		<td>
-			<?php echo h($user['User']['created']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Modified'); ?></th>
-		<td>
-			<?php echo h($user['User']['modified']); ?>
-			&nbsp;
-		</td>
-</tr>
+					<tr>
+						<th><?php echo __('Id'); ?></th>
+						<td>
+							<?php echo h($user['User']['id']); ?>
+							&nbsp;
+						</td>
+					</tr>
+					<tr>
+						<th><?php echo __('Documento'); ?></th>
+						<td>
+							<?php echo h($user['User']['document']); ?>
+							&nbsp;
+						</td>
+					</tr>
+					<tr>
+						<th><?php echo __('Nombre completo'); ?></th>
+						<td>
+							<?php echo h($user['User']['full_name']); ?>
+							&nbsp;
+						</td>
+					</tr>
+					<tr>
+						<th><?php echo __('Apellidos'); ?></th>
+						<td>
+							<?php echo h($user['User']['last_name']); ?>
+							&nbsp;
+						</td>
+					</tr>
+					<tr>
+						<th><?php echo __('Email'); ?></th>
+						<td>
+							<?php echo h($user['User']['email']); ?>
+							&nbsp;
+						</td>
+					</tr>
+					<tr>
+						<th><?php echo __('Teléfono'); ?></th>
+						<td>
+							<?php echo h($user['User']['telephone']); ?>
+							&nbsp;
+						</td>
+					</tr>
+					<tr>
+						<th><?php echo __('Fecha de nacimiento'); ?></th>
+						<td>
+							<?php echo h($user['User']['bithday']); ?>
+							&nbsp;
+						</td>
+					</tr>
+					<tr>
+						<th><?php echo __('Ciudad'); ?></th>
+						<td>
+							<?php echo $this->Html->link($user['City']['name'], array('controller' => 'cities', 'action' => 'view', $user['City']['id'])); ?>
+							&nbsp;
+						</td>
+					</tr>
+					<tr>
+						<th><?php echo __('Departamento'); ?></th>
+						<td>
+							<?php echo $this->Html->link($user['Departament']['name'], array('controller' => 'departaments', 'action' => 'view', $user['Departament']['id'])); ?>
+							&nbsp;
+						</td>
+					</tr>
+					<tr>
+						<th><?php echo __('Tipo de usuario'); ?></th>
+						<td>
+							<?php echo $this->Html->link($user['UserType']['name'], array('controller' => 'user_types', 'action' => 'view', $user['UserType']['id'])); ?>
+							&nbsp;
+						</td>
+					</tr>
+					<tr>
+						<th><?php echo __('Fecha de creación'); ?></th>
+						<td>
+							<?php echo h($user['User']['created']); ?>
+							&nbsp;
+						</td>
+					</tr>
+					<tr>
+						<th><?php echo __('Fecha de modificación'); ?></th>
+						<td>
+							<?php echo h($user['User']['modified']); ?>
+							&nbsp;
+						</td>
+					</tr>
 				</tbody>
 			</table>
 
