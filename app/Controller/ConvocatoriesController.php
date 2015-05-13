@@ -13,7 +13,11 @@ class ConvocatoriesController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('Paginator', 'Search.Prg');
+    public $presetVars = array(
+        array('field' => 'cod', 'type' => 'value'),
+        array('field' => 'nombre', 'type' => 'value')
+    );
 
 /**
  * index method
@@ -21,7 +25,10 @@ class ConvocatoriesController extends AppController {
  * @return void
  */
 	public function index() {
+        $this->Prg->commonProcess();
 		$this->Convocatory->recursive = 0;
+        
+        $this->Paginator->settings['conditions'] = $this->Convocatory->parseCriteria($this->Prg->parsedParams());
 		$this->set('convocatories', $this->Paginator->paginate());
 	}
 

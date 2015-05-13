@@ -5,6 +5,36 @@
 			<div class="page-header">
 				<h1><?php echo __('Convocatorias'); ?></h1>
 			</div>
+            
+            
+            <div class="col-md-12 text-right">
+                <div class="col-md-3"></div>
+                <?php
+                    echo $this->Form->create('Convocatory', array('url' => array_merge(array('action' => 'index'), $this->params['pass'])));
+                 ?> 
+                <div class="col-md-4">
+                    <?php  
+                        echo $this->Form->input('cod', array('div' => false, 'empty' => true, 'class' => 'form-control', 'placeholder' => 'Filtrar por ID...', 'label' => ''));
+                    ?>
+                 </div>
+                 <div class="col-md-4">
+                     <?php  
+                        echo $this->Form->input('nombre', array('div' => false, 'empty' => true, 'class' => 'form-control', 'placeholder' => 'Filtrar por nombre...', 'label' => ''));
+                        //echo $this->Html->link(__('Todos'), array('action' => 'add'), array('class' => 'btn btn-primary'));
+                    ?>
+                </div>
+                <div class="col-md-1">
+                     <?php  
+                        echo $this->Form->submit(__('Filtrar', true), array('class' => 'btn btn-default'));
+                        echo $this->Html->link(__('Listar'), array('action' => 'index'), array('class' => 'btn btn-default'));
+                        //echo $this->Html->link(__('Todos'), array('action' => 'add'), array('class' => 'btn btn-primary'));
+                    ?>
+                </div>
+                <?php  echo $this->Form->end();  ?>
+            </div>
+            
+            
+                                                                                    
 		</div><!-- end col md 12 -->
 	</div><!-- end row -->
 
@@ -26,6 +56,7 @@
 		</div><!-- end col md 3 -->
 
 		<div class="col-md-9">
+        
 			<table cellpadding="0" cellspacing="0" class="table table-striped">
 				<thead>
 					<tr>
