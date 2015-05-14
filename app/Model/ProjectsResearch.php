@@ -9,6 +9,10 @@ App::uses('AppModel', 'Model');
  */
 class ProjectsResearch extends AppModel {
 
+
+    
+
+
 /**
  * Validation rules
  *

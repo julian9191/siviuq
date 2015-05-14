@@ -7,6 +7,47 @@ App::uses('AppModel', 'Model');
  */
 class InvestigationLine extends AppModel {
 
+public $actsAs = array('Search.Searchable');
+
+
+        public $filterArgs = array(
+            array('name' => 'cod', 'type' => 'query', 'method' => 'orConditions'),
+            array('name' => 'nombre', 'type' => 'query', 'method' => 'orConditions')
+        );
+
+        
+        public function orConditions($data = array()) {
+            
+            $id = $data['cod'];
+            $nombre = $data['nombre'];
+            if($id == ""){
+                $condition = array(
+                    'OR' => array(
+                        $this->alias . '.name LIKE' => '%' . $nombre . '%',
+                    )
+                );
+                return $condition;
+            }
+            
+            if($nombre == ""){
+                $condition = array(
+                    'OR' => array(
+                        $this->alias . '.id LIKE' => '%' . $id . '%',
+                    )
+                );
+                return $condition;
+            }
+            
+            $condition = array(
+                'OR' => array(
+                    $this->alias . '.id LIKE' => '%' . $id . '%',
+                    $this->alias . '.name LIKE' => '%' . $nombre . '%',
+                )
+            );
+            return $condition;
+        }
+
+
 /**
  * Validation rules
  *

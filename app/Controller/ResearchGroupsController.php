@@ -13,7 +13,11 @@ class ResearchGroupsController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('Paginator', 'Search.Prg');
+    public $presetVars = array(
+        array('field' => 'cod', 'type' => 'value'),
+        array('field' => 'nombre', 'type' => 'value')
+    );
 
 /**
  * index method
@@ -21,7 +25,10 @@ class ResearchGroupsController extends AppController {
  * @return void
  */
 	public function index() {
+	    $this->Prg->commonProcess();
+       
 		$this->ResearchGroup->recursive = 0;
+        $this->Paginator->settings['conditions'] = $this->ResearchGroup->parseCriteria($this->Prg->parsedParams());
 		$this->set('researchGroups', $this->Paginator->paginate());
 	}
 

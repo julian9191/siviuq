@@ -7,6 +7,46 @@ App::uses('AppModel', 'Model');
  */
 class ProjectEvaluation extends AppModel {
 
+        public $actsAs = array('Search.Searchable');
+
+
+        public $filterArgs = array(
+            array('name' => 'cod', 'type' => 'query', 'method' => 'orConditions'),
+            array('name' => 'nombre', 'type' => 'query', 'method' => 'orConditions')
+        );
+
+        
+        public function orConditions($data = array()) {
+            
+            $id = $data['cod'];
+            $nombre = $data['nombre'];
+            if($id == ""){
+                $condition = array(
+                    'OR' => array(
+                        $this->alias . '.evaluator_name LIKE' => '%' . $nombre . '%',
+                    )
+                );
+                return $condition;
+            }
+            
+            if($nombre == ""){
+                $condition = array(
+                    'OR' => array(
+                        $this->alias . '.projects_id LIKE' => '%' . $id . '%',
+                    )
+                );
+                return $condition;
+            }
+            
+            $condition = array(
+                'OR' => array(
+                    $this->alias . '.projects_id LIKE' => '%' . $id . '%',
+                    $this->alias . '.evaluator_name LIKE' => '%' . $nombre . '%',
+                )
+            );
+            return $condition;
+        }
+
 /**
  * Validation rules
  *

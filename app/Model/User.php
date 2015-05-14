@@ -10,6 +10,49 @@ App::uses('AppModel', 'Model');
  */
 class User extends AppModel {
 
+public $actsAs = array('Search.Searchable');
+
+
+        public $filterArgs = array(
+            array('name' => 'cod', 'type' => 'query', 'method' => 'orConditions'),
+            array('name' => 'nombre', 'type' => 'query', 'method' => 'orConditions')
+        );
+
+        
+        public function orConditions($data = array()) {
+            
+            $id = $data['cod'];
+            $nombre = $data['nombre'];
+            if($id == ""){
+                $condition = array(
+                    'OR' => array(
+                        $this->alias . '.full_name LIKE' => '%' . $nombre . '%',
+                        $this->alias . '.last_name LIKE' => '%' . $nombre . '%',
+                    )
+                );
+                return $condition;
+            }
+            
+            if($nombre == ""){
+                $condition = array(
+                    'OR' => array(
+                        $this->alias . '.document LIKE' => '%' . $id . '%',
+                    )
+                );
+                return $condition;
+            }
+            
+            $condition = array(
+                'OR' => array(
+                    $this->alias . '.document LIKE' => '%' . $id . '%',
+                    $this->alias . '.full_name LIKE' => '%' . $nombre . '%',
+                    $this->alias . '.last_name LIKE' => '%' . $nombre . '%',
+                )
+            );
+            return $condition;
+        }
+
+
 /**
  * Validation rules
  *

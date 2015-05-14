@@ -13,7 +13,11 @@ class ProgramsController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('Paginator', 'Search.Prg');
+    public $presetVars = array(
+        array('field' => 'cod', 'type' => 'value'),
+        array('field' => 'nombre', 'type' => 'value')
+    );
 
 /**
  * index method
@@ -21,7 +25,9 @@ class ProgramsController extends AppController {
  * @return void
  */
 	public function index() {
+	    $this->Prg->commonProcess();
 		$this->Program->recursive = 0;
+        $this->Paginator->settings['conditions'] = $this->Program->parseCriteria($this->Prg->parsedParams());
 		$this->set('programs', $this->Paginator->paginate());
 	}
 

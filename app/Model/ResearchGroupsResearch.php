@@ -8,6 +8,8 @@ App::uses('AppModel', 'Model');
  */
 class ResearchGroupsResearch extends AppModel {
 
+public $actsAs = array('Search.Searchable');
+
 /**
  * Validation rules
  *

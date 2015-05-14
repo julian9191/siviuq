@@ -32,7 +32,7 @@ class Convocatory extends AppModel {
             if($nombre == ""){
                 $condition = array(
                     'OR' => array(
-                        $this->alias . '.name LIKE' => '%' . $id . '%',
+                        $this->alias . '.id LIKE' => '%' . $id . '%',
                     )
                 );
                 return $condition;

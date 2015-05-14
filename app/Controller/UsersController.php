@@ -13,7 +13,11 @@ class UsersController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('Paginator', 'Search.Prg');
+    public $presetVars = array(
+        array('field' => 'cod', 'type' => 'value'),
+        array('field' => 'nombre', 'type' => 'value')
+    );
 
 
 /**
@@ -22,7 +26,10 @@ class UsersController extends AppController {
  * @return void
  */
 	public function index() {
+	   $this->Prg->commonProcess();
+       
 		$this->User->recursive = 0;
+        $this->Paginator->settings['conditions'] = $this->User->parseCriteria($this->Prg->parsedParams());
 		$this->set('users', $this->Paginator->paginate());
 	}
 
@@ -116,15 +123,24 @@ class UsersController extends AppController {
     
  //INVESTIGADORES---------------------------------------------------------------------------------------------------------------------------
  
+ 
+ 
+ 
  /**
  * index method
  *
  * @return void
  */
 	public function indexResearch() {
+	   
+       $this->Prg->commonProcess();
+       
+       $condiciones = $this->User->parseCriteria($this->Prg->parsedParams());
+       $condiciones['User.user_type_id'] = '1';
+       
 	   //Where user_type_id es investigador
         $this->Paginator->settings = array(
-            'conditions' => array('User.user_type_id' => '1')
+            'conditions' => $condiciones
         );
        
 		$this->User->recursive = 0;
