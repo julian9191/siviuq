@@ -31,7 +31,16 @@ echo $this->fetch('script');
 
 <body>
     
-    <?php echo $this->element('menu'); ?>
+    <?php 
+        $role = $this->Session->read('User.role');
+        if($role == "1"){
+            echo $this->element('menu_investigador');
+        }
+        else
+        {
+            echo $this->element('menu_admin');
+        }
+    ?>
   <div class="container-main">
 
     <div id="content">
@@ -58,6 +67,14 @@ echo $this->fetch('script');
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.min.js"></script>
       <![endif]-->
+      
+      
+      <?php 
+        /*Traza de la consulta sql*/
+        //echo $this->element('sql_dump'); 
+      ?>
+      
+      
     </body>
     </html>
 

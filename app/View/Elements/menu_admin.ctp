@@ -8,7 +8,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <?php echo $this->Html->link('SIVIUQ', array('controller'=>'Pages', 'action'=>'home'), array('class' => 'navbar-brand'));?>
+          <?php echo $this->Html->link('SIVIUQ', array('controller'=>'Pages', 'action'=>'index'), array('class' => 'navbar-brand'));?>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">

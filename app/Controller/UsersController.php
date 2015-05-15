@@ -232,7 +232,7 @@ class UsersController extends AppController {
 		}
 		$cities = $this->User->City->find('list');
 		$departaments = $this->User->Departament->find('list');
-		$userTypes = $this->User->UserType->find('list');
+		$userTypes = $this->User->UserType->find('list', array('conditions' => array('UserType.id' => '1')));
 		$this->set(compact('cities', 'departaments', 'userTypes'));
 	}
 
@@ -285,6 +285,51 @@ class UsersController extends AppController {
 			//$this->Session->setFlash(__('The Research could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 		}
 		//return $this->redirect(array('action' => 'indexResearch'));
+	}
+ 
+ 
+ //PERFIL-------------------------------------------------------------------------------------------------------------------------------------
+ /**
+ * view method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function viewProfile($id = null) {
+		if (!$this->User->exists($id)) {
+			throw new NotFoundException(__('Invalid user'));
+		}
+		$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
+		$this->set('user', $this->User->find('first', $options));
+	}
+ 
+ /**
+ * edit method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function editProfile($id = null) {
+		if (!$this->User->exists($id)) {
+			throw new NotFoundException(__('Invalid user'));
+		}
+		if ($this->request->is(array('post', 'put'))) {
+			if ($this->User->save($this->request->data)) {
+				$this->Session->setFlash(__('The user has been saved.'), 'default', array('class' => 'alert alert-success'));
+				return $this->redirect(array('action' => 'indexResearch'));
+			} else {
+				$this->Session->setFlash(__('The user could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+			}
+		} else {
+			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
+			$this->request->data = $this->User->find('first', $options);
+		}
+		$cities = $this->User->City->find('list');
+		$departaments = $this->User->Departament->find('list');
+		$userTypes = $this->User->UserType->find('list', array('conditions' => array('UserType.id' => '1')));
+		$this->set(compact('cities', 'departaments', 'userTypes'));
 	}
  
     

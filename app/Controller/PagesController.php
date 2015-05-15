@@ -78,4 +78,10 @@ class PagesController extends AppController {
     {	
 
     }
+    
+    public function index()
+    {	
+        $this->Session->write('User.role', '1');
+        $this->Session->write('User.id', '1');
+    }
 }

@@ -31,6 +31,30 @@ class ProjectsController extends AppController {
         $this->Paginator->settings['conditions'] = $this->Project->parseCriteria($this->Prg->parsedParams());
 		$this->set('projects', $this->Paginator->paginate());
 	}
+    
+    public function indexResearchProjects($idResearch = null) {
+	    $this->Prg->commonProcess();
+		$this->Project->recursive = 0;
+        
+        $this->paginate = array(
+                                    'conditions' => array_merge($this->Project->parseCriteria($this->Prg->parsedParams()), array('ProjectsResearch.researche_id' => $idResearch)),
+                                    'joins' => array(
+                                        array(
+                                            'alias' => 'ProjectsResearch',
+                                            'table' => 'projects_researches',
+                                            'type' => 'LEFT',
+                                            'conditions' => '`ProjectsResearch`.`project_id` = `Project`.`id`'
+                                        )
+                                      ),
+                                        'limit' => 20,
+                            );
+                            
+
+		$this->set('projects', $this->Paginator->paginate());
+        $this->set('idResearch', $idResearch);
+	}
+    
+    
 
 /**
  * view method
@@ -65,6 +89,22 @@ class ProjectsController extends AppController {
 		$projectStates = $this->Project->ProjectState->find('list');
 		$investigationLines = $this->Project->InvestigationLine->find('list');
 		$convocatories = $this->Project->Convocatory->find('list');
+		$this->set(compact('projectStates', 'investigationLines', 'convocatories', 'research'));
+	}
+    
+    public function addProjectConvocatory($idConvocatory = null) {
+		if ($this->request->is('post')) {
+			$this->Project->create();
+			if ($this->Project->save($this->request->data)) {
+				$this->Session->setFlash(__('The project has been saved.'), 'default', array('class' => 'alert alert-success'));
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The project could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+			}
+		}
+		$projectStates = $this->Project->ProjectState->find('list');
+		$investigationLines = $this->Project->InvestigationLine->find('list');
+		$convocatories = $this->Project->Convocatory->find('list', array('conditions' => array('Convocatory.id' => $idConvocatory)));
 		$this->set(compact('projectStates', 'investigationLines', 'convocatories', 'research'));
 	}
 

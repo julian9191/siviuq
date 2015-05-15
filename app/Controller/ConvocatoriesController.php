@@ -31,6 +31,26 @@ class ConvocatoriesController extends AppController {
         $this->Paginator->settings['conditions'] = $this->Convocatory->parseCriteria($this->Prg->parsedParams());
 		$this->set('convocatories', $this->Paginator->paginate());
 	}
+    
+    
+    
+    
+    
+    /**
+ * index method
+ *
+ * @return void
+ */
+	public function indexCurrentConvocatories() {
+        $this->Prg->commonProcess();
+		$this->Convocatory->recursive = 0;
+        
+        $condiciones = array_merge($this->Convocatory->parseCriteria($this->Prg->parsedParams()), array('Convocatory.closing_date >= NOW()'));
+        $condiciones = array_merge($condiciones, array('Convocatory.opening_date <= NOW()'));
+        
+        $this->Paginator->settings['conditions'] = $condiciones;
+		$this->set('convocatories', $this->Paginator->paginate());
+	}
 
 /**
  * view method
@@ -47,6 +67,22 @@ class ConvocatoriesController extends AppController {
 		$this->set('convocatory', $this->Convocatory->find('first', $options));
 	}
     
+    public function viewCurrentConvocatory($id = null) {
+		if (!$this->Convocatory->exists($id)) {
+			throw new NotFoundException(__('Invalid convocatory'));
+		}
+		$options = array('conditions' => array('Convocatory.' . $this->Convocatory->primaryKey => $id));
+		$this->set('convocatory', $this->Convocatory->find('first', $options));
+	}
+    
+    
+ /**
+ * view method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
     public function download($id = null) {
 		if (!$this->Convocatory->exists($id)) {
 			throw new NotFoundException(__('Invalid convocatory'));
@@ -67,6 +103,9 @@ class ConvocatoriesController extends AppController {
         echo $adjunto['Convocatory']['file'];    
         
 	}
+    
+    
+    
 
 /**
  * add method
