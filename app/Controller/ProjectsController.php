@@ -70,6 +70,21 @@ class ProjectsController extends AppController {
 		$options = array('conditions' => array('Project.' . $this->Project->primaryKey => $id));
 		$this->set('project', $this->Project->find('first', $options));
 	}
+    
+    /**
+ * view method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function viewResearchProject($id = null) {
+		if (!$this->Project->exists($id)) {
+			throw new NotFoundException(__('Invalid project'));
+		}
+		$options = array('conditions' => array('Project.' . $this->Project->primaryKey => $id));
+		$this->set('project', $this->Project->find('first', $options));
+	}
 
 /**
  * add method

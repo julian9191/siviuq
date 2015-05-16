@@ -18,7 +18,15 @@
 					<div class="panel-heading">Acciones</div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
-								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;volver al proyecto'), array('controller' => 'projects', 'action' => 'view', $idProject), array('escape' => false)); ?></li>
+								<li>
+                                    <?php
+                                        $vista = "view"; 
+                                        if($this->Session->read('User.id') == "1"){
+                                            $vista = "viewResearchProject"; 
+                                        }
+                                        echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;volver al proyecto'), array('controller' => 'projects', 'action' => $vista, $idProject), array('escape' => false)); 
+                                    ?>
+                                </li>
 
 							</ul>
 						</div><!-- end body -->

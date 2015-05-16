@@ -15,6 +15,7 @@
             <li><?php echo $this->Html->link('Perfil', array('controller'=>'users', 'action'=>'viewProfile', $this->Session->read('User.id'))); ?></li>
             <li><?php echo $this->Html->link('Convocatorias Actuales', array('controller'=>'convocatories', 'action'=>'indexCurrentConvocatories')); ?></li>
             <li><?php echo $this->Html->link('Mis proyectos de investigación', array('controller'=>'projects', 'action'=>'indexResearchProjects', $this->Session->read('User.id'))); ?></li>
+            <li><?php echo $this->Html->link('Salir', array('controller'=>'params', 'action'=>'logout')); ?></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

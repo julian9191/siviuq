@@ -33,7 +33,10 @@ echo $this->fetch('script');
     
     <?php 
         $role = $this->Session->read('User.role');
-        if($role == "1"){
+        if($role == ""){
+            //No muestra menú
+        }
+        elseif($role == "1"){
             echo $this->element('menu_investigador');
         }
         else

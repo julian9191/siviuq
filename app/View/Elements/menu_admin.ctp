@@ -36,6 +36,7 @@
             <li><?php echo $this->Html->link('Convocatorias', array('controller'=>'convocatories', 'action'=>'index')); ?></li>
             <li><?php echo $this->Html->link('Proyectos de investigación', array('controller'=>'projects', 'action'=>'index')); ?></li>
             <li><?php echo $this->Html->link('Evaluaciones de proyectos', array('controller'=>'projectEvaluations', 'action'=>'index')); ?></li>
+            <li><?php echo $this->Html->link('Salir', array('controller'=>'params', 'action'=>'logout')); ?></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

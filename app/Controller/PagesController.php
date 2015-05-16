@@ -46,7 +46,6 @@ class PagesController extends AppController {
  */
 	public function display() {
 		$path = func_get_args();
-
 		$count = count($path);
 		if (!$count) {
 			return $this->redirect('/');
@@ -62,7 +61,31 @@ class PagesController extends AppController {
 		if (!empty($path[$count - 1])) {
 			$title_for_layout = Inflector::humanize($path[$count - 1]);
 		}
-		$this->set(compact('page', 'subpage', 'title_for_layout'));
+        
+        if ($this->request->is('post')) {
+            $this->loadModel('User');
+            $usersAntes = $this->User->find('all', array(
+                                            'conditions' => array('User.id' => $this->request->data['Pages']['Usuarios_id'])
+                                        ));
+            
+            $this->Session->write('User.role', $usersAntes[0]['User']['user_type_id']);
+            $this->Session->write('User.id', $usersAntes[0]['User']['id']);
+            return $this->redirect(array('controller'=>'Pages', 'action'=>'index'));
+        }
+        
+        $this->loadModel('User');
+        $usersAntes = $this->User->find('all');
+        
+        $users = array();
+        foreach ($usersAntes as $item){
+            $users[$item['User']['id']] = $item['User']['full_name'];
+        }
+        //$this->set(compact('users'));
+        
+        
+        
+        
+		$this->set(compact('page', 'subpage', 'title_for_layout', 'users'));
 
 		try {
 			$this->render(implode('/', $path));
@@ -76,12 +99,20 @@ class PagesController extends AppController {
     
     public function home()
     {	
-
+        if ($this->request->is('post')) {
+            echo json_encode($this->request->data);
+            /*$this->Session->write('User.role', '2');
+            $this->Session->write('User.id', '1');*/
+        }
     }
     
     public function index()
     {	
-        $this->Session->write('User.role', '1');
-        $this->Session->write('User.id', '1');
+        if ($this->request->is('post')) {
+            echo json_encode($this->request->data);
+            /*$this->Session->write('User.role', '2');
+            $this->Session->write('User.id', '1');*/
+        }
     }
+    
 }
