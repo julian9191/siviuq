@@ -30,11 +30,11 @@
 				<thead>
 					<tr>
 						<th><?php echo $this->Paginator->sort('id'); ?></th>
-						<th><?php echo $this->Paginator->sort('researche_id'); ?></th>
-						<th><?php echo $this->Paginator->sort('project_id'); ?></th>
-						<th><?php echo $this->Paginator->sort('research_role_id'); ?></th>
-						<th><?php echo $this->Paginator->sort('created'); ?></th>
-						<th><?php echo $this->Paginator->sort('modified'); ?></th>
+						<th><?php echo $this->Paginator->sort('researche_id','Investigador'); ?></th>
+						<th><?php echo $this->Paginator->sort('project_id','Proyecto'); ?></th>
+						<th><?php echo $this->Paginator->sort('research_role_id','Rol'); ?></th>
+						<th><?php echo $this->Paginator->sort('created','Fecha de creación'); ?></th>
+						<th><?php echo $this->Paginator->sort('modified','Fecha de modificación'); ?></th>
 						<th class="actions"></th>
 					</tr>
 				</thead>

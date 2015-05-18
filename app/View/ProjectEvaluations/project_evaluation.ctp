@@ -3,7 +3,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h1><?php echo __('Evaluaciones de projectos'); ?></h1>
+				<h1><?php echo __('Evaluaciones de proyectos'); ?></h1>
 			</div>
 		</div><!-- end col md 12 -->
 	</div><!-- end row -->
@@ -24,7 +24,7 @@
                                         if($this->Session->read('User.id') == "1"){
                                             $vista = "viewResearchProject"; 
                                         }
-                                        echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;volver al proyecto'), array('controller' => 'projects', 'action' => $vista, $idProject), array('escape' => false)); 
+                                        echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Volver al proyecto'), array('controller' => 'projects', 'action' => $vista, $idProject), array('escape' => false)); 
                                     ?>
                                 </li>
 
