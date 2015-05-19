@@ -25,7 +25,21 @@ echo $this->fetch('script');
 
 ?>
 
+<style>
 
+.navbar{
+    background: #025A28;
+}
+
+.glyphicon, a, a:hover{
+    color: #025A28;
+}
+
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a{
+    color: #fff;
+}
+
+</style>
 
 </head>
 
