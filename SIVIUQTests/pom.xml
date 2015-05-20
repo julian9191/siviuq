@@ -7,7 +7,9 @@
     <groupId>com.uniquindio.test</groupId>
     <artifactId>test</artifactId>
     <version>1.0-SNAPSHOT</version>
-
+	<build>
+		<defaultGoal>test</defaultGoal>
+	</build>
     <dependencies>
         <dependency>
             <groupId>commons-codec</groupId>
