@@ -40,6 +40,13 @@
 							&nbsp;
 						</td>
 					</tr>
+                    <tr>
+						<th><?php echo __('Código'); ?></th>
+						<td>
+							<?php echo h($project['Project']['code']); ?>
+							&nbsp;
+						</td>
+					</tr>
 					<tr>
 						<th><?php echo __('Título'); ?></th>
 						<td>

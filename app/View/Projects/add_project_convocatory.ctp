@@ -26,7 +26,10 @@
 		</div><!-- end col md 3 -->
 		<div class="col-md-9">
 			<?php echo $this->Form->create('Project', array('role' => 'form')); ?>
-
+            
+            <div class="form-group">
+				<?php echo $this->Form->input('code', array('class' => 'form-control', 'placeholder' => 'Código','label' => 'Código'));?>
+			</div>
 			<div class="form-group">
 				<?php echo $this->Form->input('resume', array('class' => 'form-control', 'placeholder' => 'Título','label' => 'Título'));?>
 			</div>

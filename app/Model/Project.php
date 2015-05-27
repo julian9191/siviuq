@@ -61,6 +61,21 @@ class Project extends AppModel {
  * @var array
  */
 	public $validate = array(
+        'code' => array(
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
+                //'rule' => 'isUnique',
+				//'message' => 'Esto es un mensaje',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+            'is_unique'     => array( //named whatever we want
+                'rule'          => 'isUnique',
+                'message'       => 'El código ingresado ya existe, este valor debe ser único.'
+            )
+		),
 		'resume' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
@@ -70,6 +85,10 @@ class Project extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
+            'is_unique'     => array( //named whatever we want
+                'rule'          => 'isUnique',
+                'message'       => 'El título ingresado ya existe, este valor debe ser único.'
+            )
 		),
 		'summary' => array(
 			'notEmpty' => array(

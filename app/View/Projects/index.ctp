@@ -41,7 +41,7 @@
 
 	<div class="row">
 
-		<div class="col-md-3">
+		<div class="col-md-2">
 			<div class="actions">
 				<div class="panel panel-default">
 					<div class="panel-heading">Acciones</div>
@@ -54,11 +54,12 @@
 			</div><!-- end actions -->
 		</div><!-- end col md 3 -->
 
-		<div class="col-md-9">
+		<div class="col-md-10">
 			<table cellpadding="0" cellspacing="0" class="table table-striped">
 				<thead>
 					<tr>
 						<th><?php echo $this->Paginator->sort('id'); ?></th>
+                        <th><?php echo $this->Paginator->sort('code','Código'); ?></th>
 						<th><?php echo $this->Paginator->sort('resume','Título'); ?></th>
 						<th><?php echo $this->Paginator->sort('summary','Resumen'); ?></th>
 						<th><?php echo $this->Paginator->sort('created','Fecha de creación'); ?></th>
@@ -76,6 +77,7 @@
 					<?php foreach ($projects as $project): ?>
 					<tr>
 						<td><?php echo h($project['Project']['id']); ?>&nbsp;</td>
+                        <td><?php echo h($project['Project']['code']); ?>&nbsp;</td>
 						<td><?php echo h($project['Project']['resume']); ?>&nbsp;</td>
 						<td><?php echo h($project['Project']['summary']); ?>&nbsp;</td>
 						<td><?php echo h($project['Project']['created']); ?>&nbsp;</td>

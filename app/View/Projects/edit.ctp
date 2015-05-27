@@ -19,10 +19,10 @@
 						<ul class="nav nav-pills nav-stacked">
 							<li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Eliminar'), array('action' => 'delete', $this->Form->value('Project.id')), array('escape' => false), __('Are you sure you want to delete # %s?', $this->Form->value('Project.id'))); ?></li>
 							<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Listar Proyectos'), array('action' => 'index'), array('escape' => false)); ?></li>
-							<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;Listar Investigadores del proyecto'), array('controller' => 'projectsResearches', 'action' => 'index'), array('escape' => false)); ?> </li>
-							<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;Listar archivos'), array('controller' => 'projectFiles', 'action' => 'index'), array('escape' => false)); ?> </li>
-							<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;Listar productos del proyecto'), array('controller' => 'projectProducts', 'action' => 'index'), array('escape' => false)); ?> </li>
-							<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;Listar fechas de entrega'), array('controller' => 'deliveryDates', 'action' => 'index'), array('escape' => false)); ?> </li> 
+							<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;Listar Investigadores del proyecto'), array('controller' => 'projectsResearches', 'action' => 'index', $this->Form->value('Project.id')), array('escape' => false)); ?> </li>
+							<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;Listar archivos'), array('controller' => 'projectFiles', 'action' => 'index', $this->Form->value('Project.id')), array('escape' => false)); ?> </li>
+							<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;Listar productos del proyecto'), array('controller' => 'projectProducts', 'action' => 'index', $this->Form->value('Project.id')), array('escape' => false)); ?> </li>
+							<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;Listar fechas de entrega'), array('controller' => 'deliveryDates', 'action' => 'index', $this->Form->value('Project.id')), array('escape' => false)); ?> </li> 
 						</ul>
 					</div>
 				</div>
@@ -33,6 +33,9 @@
 
 			<div class="form-group">
 				<?php echo $this->Form->input('id', array('class' => 'form-control', 'placeholder' => 'Id'));?>
+			</div>
+            <div class="form-group">
+				<?php echo $this->Form->input('code', array('class' => 'form-control', 'placeholder' => 'Código','label' => 'Código'));?>
 			</div>
 			<div class="form-group">
 				<?php echo $this->Form->input('resume', array('class' => 'form-control', 'placeholder' => 'Título','label' => 'Título'));?>
@@ -57,9 +60,6 @@
 			</div>
 			<div class="form-group">
 				<?php echo $this->Form->input('convocatory_id', array('class' => 'form-control', 'placeholder' => 'Convocatoria','label' => 'Convocatoria'));?>
-			</div>
-			<div class="form-group">
-				<?php echo $this->Form->input('Research', array('class' => 'form-control', 'placeholder' => 'Investigador','label' => 'Investigador'));?>
 			</div>
 			<div class="form-group">
 				<?php echo $this->Form->submit(__('EDITAR'), array('class' => 'btn btn-default')); ?>

@@ -49,10 +49,10 @@ class ResearchController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Research->create();
 			if ($this->Research->save($this->request->data)) {
-				$this->Session->setFlash(__('The research has been saved.'), 'default', array('class' => 'alert alert-success'));
+				$this->Session->setFlash(__('El registro ha sido guardado'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The research could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash(__('El registro no ha podido ser guardado, por favor inténtelo de nuevo.'), 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 		$users = $this->Research->User->find('list');
@@ -74,10 +74,10 @@ class ResearchController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Research->save($this->request->data)) {
-				$this->Session->setFlash(__('The research has been saved.'), 'default', array('class' => 'alert alert-success'));
+				$this->Session->setFlash(__('El registro ha sido guardado'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The research could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash(__('El registro no ha podido ser guardado, por favor inténtelo de nuevo.'), 'default', array('class' => 'alert alert-danger'));
 			}
 		} else {
 			$options = array('conditions' => array('Research.' . $this->Research->primaryKey => $id));
@@ -102,11 +102,18 @@ class ResearchController extends AppController {
 			throw new NotFoundException(__('Invalid research'));
 		}
 		$this->request->onlyAllow('post', 'delete');
-		if ($this->Research->delete()) {
-			$this->Session->setFlash(__('The research has been deleted.'), 'default', array('class' => 'alert alert-success'));
-		} else {
-			$this->Session->setFlash(__('The research could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
-		}
+
+        try {
+            if ($this->Research->delete()) {
+    			$this->Session->setFlash(__('El registro ha sido eliminado.'), 'default', array('class' => 'alert alert-success'));
+    		} else {
+    			$this->Session->setFlash(__('El registro no ha podido ser eliminado, por favor inténtelo de nuevo.'), 'default', array('class' => 'alert alert-danger'));
+    		}
+    		
+        } catch (Exception $e) {
+            $this->Session->setFlash(__('El registro seleccionado ya está siendo usado y no puede ser eliminado'), 'default', array('class' => 'alert alert-danger'));
+        }
+        
 		return $this->redirect(array('action' => 'index'));
 	}
 }

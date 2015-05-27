@@ -98,11 +98,18 @@ class CitiesController extends AppController {
 			throw new NotFoundException(__('Invalid city'));
 		}
 		$this->request->onlyAllow('post', 'delete');
-		if ($this->City->delete()) {
-			$this->Session->setFlash(__('The city has been deleted.'), 'default', array('class' => 'alert alert-success'));
-		} else {
-			$this->Session->setFlash(__('The city could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
-		}
+
+        try {
+            if ($this->City->delete()) {
+    			$this->Session->setFlash(__('The city has been deleted.'), 'default', array('class' => 'alert alert-success'));
+    		} else {
+    			$this->Session->setFlash(__('The city could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+    		}
+    		
+        } catch (Exception $e) {
+            $this->Session->setFlash(__('El registro seleccionado ya está siendo usado y no puede ser eliminado'), 'default', array('class' => 'alert alert-danger'));
+        }
+        
 		return $this->redirect(array('action' => 'index'));
 	}
 }

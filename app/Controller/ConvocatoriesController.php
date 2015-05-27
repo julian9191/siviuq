@@ -153,10 +153,10 @@ class ConvocatoriesController extends AppController {
             
             
 			if ($this->Convocatory->save($this->request->data)) {
-				$this->Session->setFlash(__('The convocatory has been saved.'), 'default', array('class' => 'alert alert-success'));
+				$this->Session->setFlash(__('El registro ha sido guardado.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The convocatory could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash(__('El registro no ha podido ser guardado, por favor inténtelo de nuevo.'), 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 	}
@@ -207,10 +207,10 @@ class ConvocatoriesController extends AppController {
             }
 
 			if ($this->Convocatory->save($this->request->data)) {
-				$this->Session->setFlash(__('The convocatory has been saved.'), 'default', array('class' => 'alert alert-success'));
+				$this->Session->setFlash(__('El registro ha sido guardado.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The convocatory could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash(__('El registro no ha podido ser guardado, por favor inténtelo de nuevo.'), 'default', array('class' => 'alert alert-danger'));
 			}
 		} else {
 			$options = array('conditions' => array('Convocatory.' . $this->Convocatory->primaryKey => $id));
@@ -234,11 +234,19 @@ class ConvocatoriesController extends AppController {
 			throw new NotFoundException(__('Invalid convocatory'));
 		}
 		$this->request->onlyAllow('post', 'delete');
-		if ($this->Convocatory->delete()) {
-			$this->Session->setFlash(__('The convocatory has been deleted.'), 'default', array('class' => 'alert alert-success'));
-		} else {
-			$this->Session->setFlash(__('The convocatory could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
-		}
+		
+        
+        try {
+            if ($this->Convocatory->delete()) {
+    			$this->Session->setFlash(__('El registro ha sido eliminado.'), 'default', array('class' => 'alert alert-success'));
+    		} else {
+    			$this->Session->setFlash(__('El registro no ha podido ser eliminado, por favor inténtelo de nuevo.'), 'default', array('class' => 'alert alert-danger'));
+    		}
+    		
+        } catch (Exception $e) {
+            $this->Session->setFlash(__('El registro seleccionado ya está siendo usado y no puede ser eliminado'), 'default', array('class' => 'alert alert-danger'));
+        }
+        
 		return $this->redirect(array('action' => 'index'));
 	}
 }

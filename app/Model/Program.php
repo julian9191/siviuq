@@ -65,6 +65,10 @@ public $actsAs = array('Search.Searchable');
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
+            'is_unique'     => array( //named whatever we want
+                'rule'          => 'isUnique',
+                'message'       => 'El Nombre ingresado ya existe, este valor debe ser único.'
+            )
 		),
 		'faculty_id' => array(
 			'numeric' => array(

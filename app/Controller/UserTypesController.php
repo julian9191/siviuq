@@ -49,10 +49,10 @@ class UserTypesController extends AppController {
 		if ($this->request->is('post')) {
 			$this->UserType->create();
 			if ($this->UserType->save($this->request->data)) {
-				$this->Session->setFlash(__('The user type has been saved.'), 'default', array('class' => 'alert alert-success'));
+				$this->Session->setFlash(__('El usuario ha sido guardado.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The user type could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash(__('El usuario no pudo ser guardado, por favor inténtelo de nuevo.'), 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 	}
@@ -70,10 +70,10 @@ class UserTypesController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->UserType->save($this->request->data)) {
-				$this->Session->setFlash(__('The user type has been saved.'), 'default', array('class' => 'alert alert-success'));
+				$this->Session->setFlash(__('El usuario ha sido guardado.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The user type could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash(__('El usuario no pudo ser guardado, por favor inténtelo de nuevo.'), 'default', array('class' => 'alert alert-danger'));
 			}
 		} else {
 			$options = array('conditions' => array('UserType.' . $this->UserType->primaryKey => $id));
@@ -94,11 +94,18 @@ class UserTypesController extends AppController {
 			throw new NotFoundException(__('Invalid user type'));
 		}
 		$this->request->onlyAllow('post', 'delete');
-		if ($this->UserType->delete()) {
-			$this->Session->setFlash(__('The user type has been deleted.'), 'default', array('class' => 'alert alert-success'));
-		} else {
-			$this->Session->setFlash(__('The user type could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
-		}
+        
+        try {
+            if ($this->UserType->delete()) {
+    			$this->Session->setFlash(__('El usuario ha sido eliminado.'), 'default', array('class' => 'alert alert-success'));
+    		} else {
+    			$this->Session->setFlash(__('El usuario no ha podido ser eliminado, por favor inténtelo de nuevo.'), 'default', array('class' => 'alert alert-danger'));
+    		}
+    		
+        } catch (Exception $e) {
+            $this->Session->setFlash(__('El registro seleccionado ya está siendo usado y no puede ser eliminado'), 'default', array('class' => 'alert alert-danger'));
+        }
+        
 		return $this->redirect(array('action' => 'index'));
 	}
 }

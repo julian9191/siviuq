@@ -57,10 +57,10 @@ class DeliveryDatesController extends AppController {
 		if ($this->request->is('post')) {
 			$this->DeliveryDate->create();
 			if ($this->DeliveryDate->save($this->request->data)) {
-				$this->Session->setFlash(__('The delivery date has been saved.'), 'default', array('class' => 'alert alert-success'));
+				$this->Session->setFlash(__('El registro ha sido guardado.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idProject));
 			} else {
-				$this->Session->setFlash(__('The delivery date could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash(__('El registro no ha podido ser guardado, por favor inténtelo de nuevo.'), 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 		$notificationsTemplates = $this->DeliveryDate->NotificationsTemplate->find('list');
@@ -82,10 +82,10 @@ class DeliveryDatesController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->DeliveryDate->save($this->request->data)) {
-				$this->Session->setFlash(__('The delivery date has been saved.'), 'default', array('class' => 'alert alert-success'));
+				$this->Session->setFlash(__('El registro ha sido guardado.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idProject));
 			} else {
-				$this->Session->setFlash(__('The delivery date could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash(__('El registro no ha podido ser guardado, por favor inténtelo de nuevo.'), 'default', array('class' => 'alert alert-danger'));
 			}
 		} else {
 			$options = array('conditions' => array('DeliveryDate.' . $this->DeliveryDate->primaryKey => $id));
@@ -110,11 +110,18 @@ class DeliveryDatesController extends AppController {
 			throw new NotFoundException(__('Invalid delivery date'));
 		}
 		$this->request->onlyAllow('post', 'delete');
-		if ($this->DeliveryDate->delete()) {
-			$this->Session->setFlash(__('The delivery date has been deleted.'), 'default', array('class' => 'alert alert-success'));
-		} else {
-			$this->Session->setFlash(__('The delivery date could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
-		}
+		
+        try {
+            if ($this->DeliveryDate->delete()) {
+    			$this->Session->setFlash(__('El registro ha sido eliminado.'), 'default', array('class' => 'alert alert-success'));
+    		} else {
+    			$this->Session->setFlash(__('El registro no ha podido ser eliminado, por favor inténtelo de nuevo.'), 'default', array('class' => 'alert alert-danger'));
+    		}
+    		
+        } catch (Exception $e) {
+            $this->Session->setFlash(__('El registro seleccionado ya está siendo usado y no puede ser eliminado'), 'default', array('class' => 'alert alert-danger'));
+        }
+        
 		return $this->redirect(array('action' => 'index', $idProject));
         $this->set('idProject', $idProject);
 	}

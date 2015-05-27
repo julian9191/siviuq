@@ -57,10 +57,10 @@ class UsersController extends AppController {
 		if ($this->request->is('post')) {
 			$this->User->create();
 			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash(__('The user has been saved.'), 'default', array('class' => 'alert alert-success'));
+				$this->Session->setFlash(__('El usuario ha sido guardado.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash(__('El usuario no ha podido ser guardado, por favor inténtelo de nuevo.'), 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 		$cities = $this->User->City->find('list');
@@ -82,10 +82,10 @@ class UsersController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash(__('The user has been saved.'), 'default', array('class' => 'alert alert-success'));
+				$this->Session->setFlash(__('El usuario ha sido guardado.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash(__('El usuario no ha podido ser guardado, por favor inténtelo de nuevo.'), 'default', array('class' => 'alert alert-danger'));
 			}
 		} else {
 			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
@@ -111,9 +111,9 @@ class UsersController extends AppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->User->delete()) {
-			$this->Session->setFlash(__('The user has been deleted.'), 'default', array('class' => 'alert alert-success'));
+			$this->Session->setFlash(__('El usuario ha sido eliminado.'), 'default', array('class' => 'alert alert-success'));
 		} else {
-			$this->Session->setFlash(__('The user could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+			$this->Session->setFlash(__('El usuario no ha podido ser eliminado, por favor inténtelo de nuevo.'), 'default', array('class' => 'alert alert-danger'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
@@ -203,7 +203,7 @@ class UsersController extends AppController {
 				$this->Session->setFlash(__('El investigador ha sido insertado.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'indexResearch'));
 			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash(__('El investigador no ha podido ser guardado, por favor inténtelo de nuevo.'), 'default', array('class' => 'alert alert-danger'));
 			}
 		}
     }
@@ -221,10 +221,10 @@ class UsersController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash(__('The user has been saved.'), 'default', array('class' => 'alert alert-success'));
+				$this->Session->setFlash(__('El investigador ha sido guardado.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'indexResearch'));
 			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash(__('El investigador no ha podido ser guardado, por favor inténtelo de nuevo.'), 'default', array('class' => 'alert alert-danger'));
 			}
 		} else {
 			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
@@ -244,21 +244,29 @@ class UsersController extends AppController {
  * @return void
  */
 	public function deleteResearch($id = null) {
-	   $this->eliminarEnResearch($id);
+
+        try {
+            $this->eliminarEnResearch($id);
        
-       $this->loadModel('User');
-		$this->User->id = $id;
-		        
-        if (!$this->User->exists()) {
-			throw new NotFoundException(__('Invalid user'));
-		}
-		//$this->request->onlyAllow('post', 'delete');
-		if ($this->User->delete()) {
-		      
-			$this->Session->setFlash(__('The user has been deleted.'), 'default', array('class' => 'alert alert-success'));
-		} else {
-			$this->Session->setFlash(__('The user could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
-		}
+           $this->loadModel('User');
+    		$this->User->id = $id;
+    		        
+            if (!$this->User->exists()) {
+    			throw new NotFoundException(__('Invalid user'));
+    		}
+    		//$this->request->onlyAllow('post', 'delete');
+    		if ($this->User->delete()) {
+    		      
+    			$this->Session->setFlash(__('El investigador ha sido eliminado.'), 'default', array('class' => 'alert alert-success'));
+    		} else {
+    			$this->Session->setFlash(__('El investigador no ha podido ser eliminado, por favor inténtelo de nuevo.'), 'default', array('class' => 'alert alert-danger'));
+    		}
+            
+        } catch (Exception $e) {
+            $this->Session->setFlash(__('El registro seleccionado ya está siendo usado y no puede ser eliminado'), 'default', array('class' => 'alert alert-danger'));
+        }
+        
+        
 		return $this->redirect(array('action' => 'indexResearch'));
 	}
     
@@ -278,11 +286,9 @@ class UsersController extends AppController {
 		if (!$this->Research->exists()) {
 			throw new NotFoundException(__('Invalid user'));
 		}
-		//$this->request->onlyAllow('post', 'delete');
 		if ($this->Research->delete()) {
-			//$this->Session->setFlash(__('The Research has been deleted.'), 'default', array('class' => 'alert alert-success'));
 		} else {
-			//$this->Session->setFlash(__('The Research could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+
 		}
 		//return $this->redirect(array('action' => 'indexResearch'));
 	}
@@ -317,10 +323,10 @@ class UsersController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash(__('The user has been saved.'), 'default', array('class' => 'alert alert-success'));
+				$this->Session->setFlash(__('El perfil ha sido guardado.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'indexResearch'));
 			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash(__('El perfil no ha podido ser guardado, por favor inténtelo de nuevo.'), 'default', array('class' => 'alert alert-danger'));
 			}
 		} else {
 			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
